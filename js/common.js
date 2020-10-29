@@ -36,6 +36,17 @@ jQuery(function(S) {
 				enabled:true }
 		});
 
+	// Обработка мобильного меню
+
+	$('.header-menu .fa-bars').click(function(){
+		$('.header-menu ul').slideToggle();
+	});
+
+	$('.header-menu a').click(function(e){
+		e.preventDefault();
+		$('.header-menu ul').slideUp();
+	});
+
 	$(window).scroll(function()	{
 		
 		// Плавная прокрутка НАВЕРХ при нажатии кнопки '.top'

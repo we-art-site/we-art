@@ -1,6 +1,7 @@
 /* HEADER */
 
 .header
+
   &-top
     padding: 30px 0
 
@@ -62,6 +63,10 @@
   &-menu
     padding: 20px 0
 
+    .fa-bars
+      font-size: 1.5rem
+      display: none
+
     ul
       list-style: none
       +my-flex(space-between, center, row)
@@ -83,42 +88,38 @@
         transform: translateY(-50%)
 
     a
-      display: inline-block
+      display: block
       font-family: 'Gotham'
       text-decoration: none
       color: #000
       text-transform: uppercase
       font-size: 0.8rem
-      transition: color 0.2s linear
+      transition: all 0.2s linear
 
       &:hover
         color: #acabab
 
-/* BANNER */
+  &-banner
+    .video
+      position: relative
+      cursor: pointer
 
-.banner
-  .video
-    position: relative
-    cursor: pointer
+      &::after
+        position: absolute
+        display: block
+        font-family: 'Fontawesome'
+        content: "\f04c"
+        color: rgb(159, 156, 148)
+        bottom: 30px
+        right: 30px
+        font-size: 2.2rem
 
-    &::after
-      position: absolute
-      display: block
-      font-family: 'Fontawesome'
-      content: "\f04c"
-      color: rgb(159, 156, 148)
-      bottom: 30px
-      right: 30px
-      font-size: 2.2rem
+      &:hover::after
+        content: "\f04b"
 
-    &:hover::after
-      content: "\f04b"
-
-
-
-    img
-      display: block
-      max-width: 100%
+      img
+        display: block
+        max-width: 100%
 
 /* NEW-PROJECTS */
 
@@ -168,7 +169,7 @@
       padding: 5px 10px
       border-radius: 5px
       cursor: pointer
-      transition: color 0.2s linear
+      transition: all 0.2s linear
 
       &:hover, &.active
         color: #acabab

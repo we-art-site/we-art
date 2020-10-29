@@ -179,6 +179,11 @@ button {
   padding: 20px 0;
 }
 
+.header-menu .fa-bars {
+  font-size: 1.5rem;
+  display: none;
+}
+
 .header-menu ul {
   list-style: none;
   display: -webkit-box;
@@ -216,14 +221,14 @@ button {
 }
 
 .header-menu a {
-  display: inline-block;
+  display: block;
   font-family: 'Gotham';
   text-decoration: none;
   color: #000;
   text-transform: uppercase;
   font-size: 0.8rem;
-  -webkit-transition: color 0.2s linear;
-  transition: color 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
 }
 
 .header-menu a:hover {
@@ -324,8 +329,8 @@ button {
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
-  -webkit-transition: color 0.2s linear;
-  transition: color 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
 }
 
 .new-projects-menu li:hover, .new-projects-menu li.active {
@@ -507,6 +512,9 @@ button {
 
 /* MEDIA */
 @media only screen and (max-width: 1199px) {
+  .header-menu li:not(:last-child)::after {
+    right: -46px;
+  }
   .banner video {
     max-height: 510px;
   }
@@ -517,6 +525,9 @@ button {
 }
 
 @media only screen and (max-width: 991px) {
+  .header-menu li:not(:last-child)::after {
+    right: -22px;
+  }
   .banner video {
     max-height: 382px;
   }
@@ -533,17 +544,67 @@ button {
 }
 
 @media only screen and (max-width: 767px) {
+  .header-top {
+    padding: 15px 0;
+  }
+  .header-lang {
+    text-align: right;
+  }
+  .header-logo {
+    margin-top: 20px;
+  }
+  .header .line {
+    position: absolute;
+    top: 43px;
+    left: 0;
+    right: 0;
+    height: 1px;
+  }
   .header-menu {
-    padding: 10px 0;
+    position: relative;
+    padding: 0;
+  }
+  .header-menu .fa-bars {
+    display: inline-block;
+    color: #575a60;
+    position: absolute;
+    right: 0;
+    top: -38px;
+    cursor: pointer;
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+  }
+  .header-menu .fa-bars:hover {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
   }
   .header-menu ul {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    display: none;
+    position: absolute;
+    z-index: 5;
+    background-color: #fff;
+    right: 0;
+    border: 1px solid #000;
   }
-  .header-menu li {
-    text-align: center;
-    -ms-flex-preferred-size: 30%;
-        flex-basis: 30%;
+  .header-menu ul li {
+    display: block;
+  }
+  .header-menu ul a {
+    padding: 5px 10px;
+    color: #000;
+  }
+  .header-menu ul a:hover {
+    background-color: #393737;
+    color: #fff;
+  }
+  .header-lang {
+    font-size: 0.7rem;
+  }
+  .header-lang a::before {
+    top: -8px;
+  }
+  .header-socials {
+    font-size: 1rem;
   }
   .new-projects-title::before, .new-projects-title::after {
     display: none;
@@ -558,14 +619,29 @@ button {
   .header-menu li:not(:last-child)::after {
     display: none;
   }
+  .new-projects-menu {
+    margin-bottom: 30px;
+  }
   .new-projects-menu ul {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
-  .new-projects-menu ul li {
+  .new-projects-menu li {
     text-align: center;
-    -ms-flex-preferred-size: 45%;
-        flex-basis: 45%;
+    -ms-flex-preferred-size: 255px;
+        flex-basis: 255px;
+    padding: 5px  10px;
+    border: 1px solid #181819;
+    margin-bottom: 10px;
+  }
+  .new-projects-menu li:hover, .new-projects-menu li.active {
+    border-color: #acabab;
+  }
+  .new-projects-menu li:not(:last-child) {
+    margin-right: 0;
   }
   .new-projects-menu li:not(:last-child)::after {
     display: none;
@@ -579,25 +655,12 @@ button {
 }
 
 @media only screen and (max-width: 575px) {
-  .header-socials {
-    text-align: center;
+  .header-top {
+    padding-left: 10px;
+    padding-right: 10px;
   }
-  .header-logo {
-    margin-bottom: 30px;
-  }
-  .header-logo img {
-    margin-right: auto;
-    margin-left: auto;
-  }
-  .header-lang {
-    font-size: 0.8rem;
-    text-align: center;
-  }
-  .header-lang a:not(:last-child) {
-    margin-right: 15px;
-  }
-  .header-lang a::before {
-    top: -10px;
+  .header-menu .fa-bars {
+    right: 10px;
   }
   .new-projects-title, .order-info-title {
     font-size: 28px;
@@ -607,6 +670,15 @@ button {
   }
   .new-projects-title-wrap {
     margin-bottom: 30px;
+  }
+  .new-projects-menu ul {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .new-projects-menu li {
+    -ms-flex-preferred-size: 360px;
+        flex-basis: 360px;
   }
   .new-projects-gallery .article {
     -ms-flex-preferred-size: 100%;
@@ -632,17 +704,12 @@ button {
 }
 
 @media only screen and (max-width: 440px) {
-  .header-menu li {
-    -ms-flex-preferred-size: 45%;
-        flex-basis: 45%;
-    margin-bottom: 5px;
+  .header-lang a:not(:last-child) {
+    margin-right: 10px;
   }
-  .new-projects-menu ul li {
-    -ms-flex-preferred-size: 100%;
-        flex-basis: 100%;
-  }
-  .new-projects-menu ul:not(:last-child) {
-    margin-bottom: 10px;
+  .new-projects-menu li {
+    -ms-flex-preferred-size: 280px;
+        flex-basis: 280px;
   }
   .new-projects-gallery .article {
     -ms-flex-preferred-size: 280px;
