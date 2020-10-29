@@ -28,6 +28,14 @@ jQuery(function(S) {
 		}
 	});
 
+	// Модальные окна MagnificPopup
+
+		$('.popup-link').magnificPopup({ 
+			type: 'image',
+			gallery: {
+				enabled:true }
+		});
+
 	$(window).scroll(function()	{
 		
 		// Плавная прокрутка НАВЕРХ при нажатии кнопки '.top'
