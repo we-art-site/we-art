@@ -1,0 +1,56 @@
+// миксины
+
+@mixin my-font($f-name, $f-style, $f-weight, $f-url)
+  @font-face 
+    font-family: $f-name
+    font-style: $f-style
+    font-weight: $f-weight
+    src: url($f-url) format('woff2')
+    font-display: swap
+  
+@mixin my-flex($justify, $align, $direction)
+  display: flex
+  justify-content: $justify
+  align-items: $align
+  flex-direction: $direction
+
+@mixin my-img-bg( $url)
+  background-image: url($url)
+  background-position: center
+  background-size: cover
+  background-repeat: no-repeat
+
+@mixin my-img-overley($color, $opacity)
+  position: absolute
+  content: ""
+  display: block
+  top: 0
+  left: 0
+  height: 100%
+  width: 100%
+  background-color: $color
+  opacity: $opacity
+
+@mixin my-btn($pad_t-and-b, $pad_l-and-r, $color, $bg-color)
+  display: inline-block
+  text-transform: uppercase
+  text-decoration: none
+  font-weight: 600
+  background-color: $bg-color
+  color: $color
+  padding: $pad_t-and-b $pad_l-and-r
+  border-radius: 3px
+
+@mixin my-cover
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+
+@mixin my-margin-auto
+  margin-left: auto
+  margin-right: auto
+
+@mixin  my-transition
+  transition: all 0.2s linear
