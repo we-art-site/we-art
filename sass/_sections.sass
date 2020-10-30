@@ -144,26 +144,33 @@
         color: #acabab
 
   &-banner
-    .video
-      position: relative
-      cursor: pointer
+    position: relative
+    height: 605px
+    background-color: #000
+    
 
-      &::after
+        
+    .video
+
+      &-controls
         position: absolute
-        display: block
-        font-family: 'Fontawesome'
-        content: "\f04c"
-        color: rgb(159, 156, 148)
+        display: inline-block      
+        width: 39px
+        height: 45px
+        cursor: pointer
         bottom: 30px
         right: 30px
-        font-size: 2.2rem
 
-      &:hover::after
-        content: "\f04b"
+        .fa
+          position: absolute
+          color: rgb(159, 156, 148)
+          transition: transform 0.2s linear
 
-      img
-        display: block
-        max-width: 100%
+          &:hover
+            transform: scale(1.2)
+
+        .fa-pause
+          display: none
 
 /* NEW-PROJECTS */
 

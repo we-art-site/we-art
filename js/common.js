@@ -52,12 +52,23 @@ jQuery(function(S) {
 
 	});
 
+	// Контроль высоты проигрывателя
+
+	if($(window).width() < 1365 ) {
+		$('.header-banner').css({'height' : $(window).width()/2.2562 });
+	}
+
 	$(window).resize(function()	{
-		if(screen.width > 767) {
+		if($(window).width()> 767) {
 			$('.header-menu ul').css({'display' : 'flex'});
 		} else {
 			$('.header-menu ul').css({'display' : 'none'});
 		}
+		
+		if($(window).width() < 1365 ) {
+			$('.header-banner').css({'height' : $(window).width()/2.2562 });
+		}
+
 	});
 
 	$(window).scroll(function()	{
@@ -70,12 +81,41 @@ jQuery(function(S) {
 			$('.top').removeClass('active');
 		}
 	});
-	
+
+	$('.header-banner .fa').click(function(){
+		$(this).fadeOut();
+		if($('.header-banner .video-controls .fa-pause').css('display') == 'none'){
+			$('.header-banner .video-controls .fa-play').fadeOut();
+			$('.header-banner .video-controls .fa-pause').fadeIn();
+		} else {
+			$('.header-banner .video-controls .fa-pause').fadeOut();
+			$('.header-banner .video-controls .fa-play').fadeIn();
+		}
+	});
+
 
 	// Прелоадер
 
 	$('.loader__inner').fadeOut();
 	$('.loader').delay(400).fadeOut('slow');
 	$('body').css({'overflow':'auto'});
+
+	var video = document.getElementById("VideoPlayer");
+	function stopVideo(){
+			 video.pause();
+	}
+
+	function startVideo(){
+			 video.play();
+	}
+
+	$('.header-banner .video-controls .fa-play').on('click', function(){
+    startVideo();
+	});
+
+	$('.header-banner .video-controls .fa-pause').on('click', function(){
+    stopVideo();
+	});
+
 
 });

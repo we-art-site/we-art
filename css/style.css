@@ -290,29 +290,38 @@ button {
   color: #acabab;
 }
 
-.header-banner .video {
+.header-banner {
   position: relative;
-  cursor: pointer;
+  height: 605px;
+  background-color: #000;
 }
 
-.header-banner .video::after {
+.header-banner .video-controls {
   position: absolute;
-  display: block;
-  font-family: 'Fontawesome';
-  content: "\f04c";
-  color: #9f9c94;
+  display: inline-block;
+  width: 39px;
+  height: 45px;
+  cursor: pointer;
   bottom: 30px;
   right: 30px;
-  font-size: 2.2rem;
 }
 
-.header-banner .video:hover::after {
-  content: "\f04b";
+.header-banner .video-controls .fa {
+  position: absolute;
+  color: #9f9c94;
+  -webkit-transition: -webkit-transform 0.2s linear;
+  transition: -webkit-transform 0.2s linear;
+  transition: transform 0.2s linear;
+  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
 }
 
-.header-banner .video img {
-  display: block;
-  max-width: 100%;
+.header-banner .video-controls .fa:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.header-banner .video-controls .fa-pause {
+  display: none;
 }
 
 /* NEW-PROJECTS */
