@@ -51,17 +51,9 @@
     position: relative
     padding: 0
 
-    .fa-bars
-      display: inline-block
-      color: rgb(87, 90, 96)
-      position: absolute
-      right: 0
-      top: -38px
-      cursor: pointer
-      transition: all 0.2s linear
 
-      &:hover
-        transform: scale(1.2)
+    .menu-btn
+      +my-flex(center, space-between, column)
 
     ul
       display: none

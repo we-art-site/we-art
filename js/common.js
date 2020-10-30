@@ -44,9 +44,20 @@ jQuery(function(S) {
 	});
 	
 	$('.header-menu a').click(function(e){
-		e.preventDefault();
-		$('.header-menu ul').slideUp();
-		$('.header-menu .menu-btn').toggleClass('active');
+		if($('.header-menu .menu-btn').css('display') == 'flex') {
+			e.preventDefault();
+			$('.header-menu ul').slideUp();
+			$('.header-menu .menu-btn').toggleClass('active');
+		}
+
+	});
+
+	$(window).resize(function()	{
+		if(screen.width > 767) {
+			$('.header-menu ul').css({'display' : 'flex'});
+		} else {
+			$('.header-menu ul').css({'display' : 'none'});
+		}
 	});
 
 	$(window).scroll(function()	{
