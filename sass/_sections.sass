@@ -67,6 +67,55 @@
       font-size: 1.5rem
       display: none
 
+    .menu-btn
+      position: absolute
+      display: inline-block
+      right: 0
+      top: -37px
+      height: 20px
+      width: 25px
+      +my-flex(center, space-between, column)
+      cursor: pointer
+      transition: all 0.1s linear
+
+      span
+        position: absolute
+        display: block
+        content: ""
+        height: 3px
+        left: 0
+        right: 0
+        background-color: #575a60
+        cursor: pointer
+        transition: all 0.1s linear
+
+      .top-line
+        top: 0
+
+      .middle-line
+        top: 50%
+        transform: translateY(-50%)
+
+      .bottom-line
+        bottom: 0
+
+      &:hover
+        transform: scale(1.2)
+
+      &.active
+        .middle-line
+          display: none
+
+        .top-line
+          top: 8px
+
+          transform: rotate(45deg)
+
+        .bottom-line
+          bottom: 9px
+          transform: rotate(-45deg)
+
+
     ul
       list-style: none
       +my-flex(space-between, center, row)

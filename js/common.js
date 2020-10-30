@@ -38,13 +38,15 @@ jQuery(function(S) {
 
 	// Обработка мобильного меню
 
-	$('.header-menu .fa-bars').click(function(){
+	$('.header-menu .menu-btn').click(function(){
+		$(this).toggleClass('active');
 		$('.header-menu ul').slideToggle();
 	});
-
+	
 	$('.header-menu a').click(function(e){
 		e.preventDefault();
 		$('.header-menu ul').slideUp();
+		$('.header-menu .menu-btn').toggleClass('active');
 	});
 
 	$(window).scroll(function()	{
